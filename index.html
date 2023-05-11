@@ -5,7 +5,7 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     
-    <title>TITLE</title>
+    <title>MARKET PRICES</title>
 
     <!-- MY CSS - FONT AWESOME - BOOTSTRAP -->
     <link rel="stylesheet" href="./css/main.css">
@@ -26,12 +26,12 @@
                 <input type="text" class="form-control" placeholder="Aggiungi nuovo prodotto" v-model="newProduct"/>
                 <button class="btn btn-success" :class="{disabled: !marketPages.length}" @click="addNewProduct()">AGGIUNGI</button>
             </div>
-            <select class="form-select mb-3" v-model="selectedPageId" aria-label="Default select example">
+            <select v-if="marketPages.length" class="form-select mb-3" v-model="selectedPageId" aria-label="Default select example">
                 <option value="-1">MIGLIORE</option>
                 <option v-for="(page, index) in marketPages" :value="index">{{page.market}}</option>
             </select>
             
-            <table class="table table-success table-striped table-hover text-center table-bordered align-middle">
+            <table v-if="marketPages.length" class="table table-success table-striped table-hover text-center table-bordered align-middle">
                 <thead>
                     <tr>
                         <th scope="col">PRODOTTO</th>
